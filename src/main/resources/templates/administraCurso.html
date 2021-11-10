@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<form th:action="@{/curso/agregarCurso}" th:object="${curso}" method="post">
+				
+					<div class="mb-3">
+					  <label for="id" class="form-label">ID:</label>
+					  <input type="text" class="form-control" id="id" placeholder="Ingrese id" th:field="*{id}">
+					</div>
+					
+					<div class="mb-3">
+					  <label for="nombre" class="form-label">Nombre:</label>
+					  <input type="text" class="form-control" id="nombre" placeholder="Nombre" th:field="*{nombre}">
+					  <small class="form-text text-danger"  th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+					</div>
+					
+					<div class="mb-3">
+					  <label for="creditos" class="form-label">Creditos:</label>
+					  <input type="text" class="form-control" id="creditos" placeholder="Creditos" th:field="*{creditos}">
+					  <small class="form-text text-danger"  th:if="${#fields.hasErrors('creditos')}" th:errors="*{creditos}"></small>
+					</div>					
+							
+					<input type="submit"  value = "Agregar Curso" class="btn btn-primary"/>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

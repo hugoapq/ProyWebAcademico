@@ -16,8 +16,9 @@ public class CursoService implements ICursoService{
 	private ICursoRepo cursoRepositorio;
 
 	@Override
-	public void registrar(Curso curso) {
-		cursoRepositorio.save(curso);
+	public Curso registrar(Curso curso) {
+		return cursoRepositorio.save(curso); 
+		//Metodo para registrar(INSERT SQL) y actualizar (UPDATE SQL) curso
 		
 	}
 
@@ -36,6 +37,10 @@ public class CursoService implements ICursoService{
 		cursoRepositorio.deleteById(id);
 	}
 
-	
+	@Override
+	public Curso obtenerCursoPorNombre(String nombre) {
+		return cursoRepositorio.buscarCurso(nombre);
+	}
+
 
 }

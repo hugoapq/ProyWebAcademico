@@ -7,14 +7,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Curso {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
+	
+	
 	@Column (name="nombreCurso", length=30)
+	@Size(min=5, max=30, message="El nombre del Curos debe tener como minimo 5 caracteres y como maximo 30")
+	@Pattern(regexp="'^[a-zA-Z0-9]{3}'", message="El nombre del Curso debe tener solo letras y numeros" )
+	@NotNull(message="El nombre del curso es obligatorio")
 	private String nombre;
+	
+	@Min( 1)
+	@Max( 30)
+	@NotNull(message="Los creditos son obligatorios")
 	private int creditos;
 	
 	@ManyToOne
