@@ -23,8 +23,8 @@ public class UsuarioController {
 		
 		Usuario usuario = new Usuario();
 		
-		usuario.setNombre("Usuario2");
-		usuario.setClave("clave2");
+		usuario.setNombre("Usuario3");
+		usuario.setClave("clave3");
 		
 		Usuario user = usuarioService.insertar(usuario);
 		

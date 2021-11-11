@@ -10,6 +10,8 @@ public interface IUsuarioRepo extends JpaRepository<Usuario,Integer> {
 
 	Usuario findByNombre(String nombre);
 	
+	//Select * from Usuario where nonmbre = :nombre
+	
 }
 
 
